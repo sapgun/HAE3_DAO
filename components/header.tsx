@@ -19,8 +19,8 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-[var(--deep-navy)] shadow-md">
-      <div className="container flex justify-between items-center py-5">
+    <header className="fixed w-full top-0 z-50 bg-[#002A4A]">
+      <div className="container flex justify-between items-center py-4">
         <div className="flex items-center">
           <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="mr-3">
             <polygon points="50,10 90,90 10,90" fill="none" stroke="#00B8D9" strokeWidth="5" />
@@ -33,46 +33,37 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            <li>
-              <Link href="#vision" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
-                {t("nav.vision")}
-              </Link>
-            </li>
-            <li>
-              <Link href="#features" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
-                {t("nav.features")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#community"
-                className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium"
-              >
-                {t("nav.community")}
-              </Link>
-            </li>
-            <li>
-              <Link href="#events" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
-                {t("nav.events")}
-              </Link>
-            </li>
-          </ul>
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link href="#vision" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
+            {t("nav.vision")}
+          </Link>
+          <Link href="#features" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
+            {t("nav.features")}
+          </Link>
+          <Link href="#community" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
+            {t("nav.community")}
+          </Link>
+          <Link href="#events" className="text-white hover:text-[var(--wave-cyan)] transition-colors font-medium">
+            {t("nav.events")}
+          </Link>
+          <button className="bg-[var(--wave-cyan)] text-[var(--deep-navy)] px-5 py-2 rounded-full font-semibold transition-all hover:bg-[var(--light-cyan)] hover:-translate-y-0.5">
+            {t("button.connect")}
+          </button>
         </nav>
 
-        <button className="bg-[var(--wave-cyan)] text-[var(--deep-navy)] px-5 py-2 rounded-full font-semibold transition-all hover:bg-[var(--light-cyan)] hover:-translate-y-0.5">
-          {t("button.connect")}
-        </button>
-
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center md:hidden">
+          <button className="bg-[var(--wave-cyan)] text-[var(--deep-navy)] px-4 py-1.5 rounded-full font-semibold mr-4 text-sm">
+            {t("button.connect")}
+          </button>
+          <button
+            className="text-white p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}

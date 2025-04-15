@@ -15,34 +15,48 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero" style={{ paddingBottom: "150px" }}>
+      <section
+        className="hero pt-32 pb-32 md:pb-40"
+        style={{ background: "linear-gradient(135deg, #002A4A, #005DAB)" }}
+      >
         <div className="container hero-content">
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+          >
             {t("hero.title")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
+            className="text-white/90 text-lg mb-8 max-w-2xl"
           >
             {t("hero.description")}
           </motion.p>
           <motion.div
-            className="cta-buttons mt-4"
+            className="flex flex-col sm:flex-row gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="#community" className="primary-btn">
+            <Link
+              href="#community"
+              className="bg-[#00B8D9] text-[#002A4A] px-8 py-3 rounded-full font-semibold text-center hover:bg-[#B3E5FC] transition-all hover:-translate-y-1"
+            >
               {t("hero.join")}
             </Link>
-            <Link href="#features" className="secondary-btn">
+            <Link
+              href="#features"
+              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-white/10 transition-all hover:-translate-y-1"
+            >
               {t("hero.learn")}
             </Link>
           </motion.div>
         </div>
-        <div className="wave-bg">
+        <div className="wave-bg absolute bottom-0 left-0 w-full">
           <svg
             viewBox="0 0 1200 120"
             xmlns="http://www.w3.org/2000/svg"
@@ -68,38 +82,38 @@ export default function Home() {
       </section>
 
       {/* Vision Section */}
-      <AnimatedSection className="vision" id="vision">
+      <AnimatedSection className="py-20 bg-white" id="vision">
         <div className="container">
-          <div className="section-header">
-            <h2>{t("vision.title")}</h2>
-            <p>{t("vision.subtitle")}</p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002A4A] mb-4">{t("vision.title")}</h2>
+            <p className="text-[#005DAB] text-xl">{t("vision.subtitle")}</p>
           </div>
-          <div className="vision-cards">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatedCard delay={0.1}>
-              <div className="vision-card">
-                <div className="vision-card-icon">
+              <div className="bg-[#F5F5F5] rounded-2xl p-8 shadow-md hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-16 h-16 bg-[#00B8D9] rounded-full flex items-center justify-center mb-6">
                   <Globe className="text-white" size={30} />
                 </div>
-                <h3>{t("vision.card1.title")}</h3>
-                <p>{t("vision.card1.description")}</p>
+                <h3 className="text-2xl font-bold text-[#002A4A] mb-4">{t("vision.card1.title")}</h3>
+                <p className="text-gray-700">{t("vision.card1.description")}</p>
               </div>
             </AnimatedCard>
             <AnimatedCard delay={0.2}>
-              <div className="vision-card">
-                <div className="vision-card-icon">
+              <div className="bg-[#F5F5F5] rounded-2xl p-8 shadow-md hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-16 h-16 bg-[#00B8D9] rounded-full flex items-center justify-center mb-6">
                   <Users className="text-white" size={30} />
                 </div>
-                <h3>{t("vision.card2.title")}</h3>
-                <p>{t("vision.card2.description")}</p>
+                <h3 className="text-2xl font-bold text-[#002A4A] mb-4">{t("vision.card2.title")}</h3>
+                <p className="text-gray-700">{t("vision.card2.description")}</p>
               </div>
             </AnimatedCard>
             <AnimatedCard delay={0.3}>
-              <div className="vision-card">
-                <div className="vision-card-icon">
+              <div className="bg-[#F5F5F5] rounded-2xl p-8 shadow-md hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-16 h-16 bg-[#00B8D9] rounded-full flex items-center justify-center mb-6">
                   <Zap className="text-white" size={30} />
                 </div>
-                <h3>{t("vision.card3.title")}</h3>
-                <p>{t("vision.card3.description")}</p>
+                <h3 className="text-2xl font-bold text-[#002A4A] mb-4">{t("vision.card3.title")}</h3>
+                <p className="text-gray-700">{t("vision.card3.description")}</p>
               </div>
             </AnimatedCard>
           </div>
@@ -107,55 +121,57 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Features Section */}
-      <AnimatedSection className="features" id="features">
+      <AnimatedSection className="py-20 bg-[#F5F5F5]" id="features">
         <div className="container">
-          <div className="features-grid">
-            <div className="features-image">
-              <Image
-                src="/busan-web3-gathering.png"
-                alt="해3DAO 특징"
-                width={600}
-                height={500}
-                className="rounded-xl"
-              />
-            </div>
-            <div className="features-content">
-              <h2>{t("features.title")}</h2>
-              <ul className="features-list">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#002A4A] mb-8">{t("features.title")}</h2>
+              <ul className="space-y-8">
                 <AnimatedListItem delay={0.1}>
-                  <div className="features-item">
-                    <div className="features-item-icon">
-                      <Users size={20} className="text-white" />
+                  <div className="flex items-start">
+                    <div className="bg-[#005DAB] w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Users size={24} className="text-white" />
                     </div>
-                    <div className="features-item-content">
-                      <h3>{t("features.item1.title")}</h3>
-                      <p>{t("features.item1.description")}</p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#002A4A] mb-2">{t("features.item1.title")}</h3>
+                      <p className="text-gray-700">{t("features.item1.description")}</p>
                     </div>
                   </div>
                 </AnimatedListItem>
                 <AnimatedListItem delay={0.2}>
-                  <div className="features-item">
-                    <div className="features-item-icon">
-                      <Calendar size={20} className="text-white" />
+                  <div className="flex items-start">
+                    <div className="bg-[#005DAB] w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Calendar size={24} className="text-white" />
                     </div>
-                    <div className="features-item-content">
-                      <h3>{t("features.item2.title")}</h3>
-                      <p>{t("features.item2.description")}</p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#002A4A] mb-2">{t("features.item2.title")}</h3>
+                      <p className="text-gray-700">{t("features.item2.description")}</p>
                     </div>
                   </div>
                 </AnimatedListItem>
                 <AnimatedListItem delay={0.3}>
-                  <div className="features-item">
-                    <div className="features-item-icon">
-                      <Zap size={20} className="text-white" />
+                  <div className="flex items-start">
+                    <div className="bg-[#005DAB] w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <Zap size={24} className="text-white" />
                     </div>
-                    <div className="features-item-content">
-                      <h3>{t("features.item3.title")}</h3>
-                      <p>{t("features.item3.description")}</p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#002A4A] mb-2">{t("features.item3.title")}</h3>
+                      <p className="text-gray-700">{t("features.item3.description")}</p>
                     </div>
                   </div>
                 </AnimatedListItem>
               </ul>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/busan-web3-gathering.png"
+                  alt="해3DAO 특징"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -242,21 +258,21 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Newsletter Section */}
-      <AnimatedSection className="cta-section" id="newsletter">
-        <div className="container">
-          <h2>{t("newsletter.title")}</h2>
-          <p>{t("newsletter.description")}</p>
+      <AnimatedSection className="py-20 bg-gradient-to-r from-[#005DAB] to-[#00B8D9] text-white" id="newsletter">
+        <div className="container text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("newsletter.title")}</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">{t("newsletter.description")}</p>
           <div className="max-w-md mx-auto">
             <form className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 placeholder={t("newsletter.placeholder")}
-                className="px-4 py-3 rounded-md sm:rounded-r-none text-black flex-grow"
+                className="px-4 py-3 rounded-full sm:rounded-r-none text-black flex-grow"
                 aria-label="이메일 주소"
               />
               <motion.button
                 type="submit"
-                className="bg-white text-[var(--ocean-blue)] px-6 py-3 rounded-md sm:rounded-l-none font-semibold hover:bg-[var(--light-gray)] transition-colors whitespace-nowrap"
+                className="bg-white text-[#005DAB] px-6 py-3 rounded-full sm:rounded-l-none font-semibold hover:bg-[#F5F5F5] transition-colors whitespace-nowrap"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -264,29 +280,6 @@ export default function Home() {
               </motion.button>
             </form>
           </div>
-        </div>
-        <div className="wave-bg-top">
-          <svg
-            viewBox="0 0 1200 120"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            className="w-full h-full transform rotate-180"
-          >
-            <path
-              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-              opacity=".25"
-              fill="#FFFFFF"
-            />
-            <path
-              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-              opacity=".5"
-              fill="#FFFFFF"
-            />
-            <path
-              d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-              fill="#FFFFFF"
-            />
-          </svg>
         </div>
       </AnimatedSection>
 
